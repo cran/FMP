@@ -1,6 +1,7 @@
 ## FMP 
 # programmed by Niels Waller 
 # January 27, 2016
+# bugs in T2 T3 fixed on February 5, 2016
 
 
 
@@ -11,9 +12,10 @@ FMP<-function(data, thetaInit, item, startvals, k=0, eps=1e-6){
   
     T1 <- matrix(0,3,1)
     T2 <- matrix(0,5,3); 
-    T2[1:3,1:3]<-1
+    T2[1,1]<-T2[2,2]<-T2[3,3]<-1
     T3 <- matrix(0,7,5)
-    T3[1:5,1:5]<-1
+    T3[1,1]<-T3[2,2]<-T3[3,3]<-T3[4,4]<-T3[5,5]<-1
+   
   
     # Prob of a keyed response 2PL
     P <- function(m){
@@ -60,8 +62,8 @@ FMP<-function(data, thetaInit, item, startvals, k=0, eps=1e-6){
             phi1   <- alpha1^2 + beta1
             phi2   <- alpha2^2 + beta2
             T1 <-as.vector(c(1, -2*alpha1, phi1))
-            T2[2:4,1:3] <- -2*alpha2
-            T2[3:5,1:3] <- phi2
+            T2[2,1]<-T2[3,2]<-T2[4,3] <- -2*alpha2
+            T2[3,1] <- T2[4,2] <- T2[5,3]<- phi2
             # see (A6) Liang & Browne
             asup1 = (T2 %*% T1) * lambda
             b0 = Ksi
@@ -89,10 +91,10 @@ FMP<-function(data, thetaInit, item, startvals, k=0, eps=1e-6){
             phi3 <- alpha3^2 + beta3
       
             T1 <-as.vector(c(1, -2*alpha1, phi1))
-            T2[2:4,1:3] <- -2*alpha2
-            T2[3:5,1:3] <- phi2
-            T3[2:7,1:5] <- -2*alpha3
-            T3[3:7,1:5] <- phi3
+            T2[2,1]<-T2[3,2]<-T2[4,3] <- -2*alpha2
+            T2[3,1] <- T2[4,2] <- T2[5,3]<- phi2
+            T3[2,1]<-T3[3,2]<-T3[4,3]<-T3[5,4]<-T3[6,5]<-T3[7,6]<- -2*alpha3
+            T3[3,1]<-T3[4,2]<-T3[5,3]<-T3[6,4]<-T3[7,5]<- phi3
       
             # see (A6) Liang & Browne
             asup3 = (T3 %*% T2 %*% T1) * lambda
@@ -185,8 +187,8 @@ FMP<-function(data, thetaInit, item, startvals, k=0, eps=1e-6){
                 phi2 <- alpha2^2 + beta2
       
                 T1 <-as.vector(c(1, -2*alpha1, phi1))
-                T2[2:4,1:3] <- -2*alpha2
-                T2[3:5,1:3] <- phi2
+                T2[2,1]<-T2[3,2]<-T2[4,3] <- -2*alpha2
+                T2[3,1] <- T2[4,2] <- T2[5,3]<- phi2
       
                 # see (A6) Liang & Browne
                 asup2 = (T2 %*% T1) * lambda
@@ -231,11 +233,10 @@ FMP<-function(data, thetaInit, item, startvals, k=0, eps=1e-6){
                 phi3 <- alpha3^2 + beta3
       
                 T1 <-as.vector(c(1, -2*alpha1, phi1))
-                T2[2:4,1:3] <- -2*alpha2
-                T2[3:5,1:3] <- phi2
-                T3[2:7,1:5] <- -2*alpha3
-                T3[3:7,1:5] <- phi3
-      
+                T2[2,1]<-T2[3,2]<-T2[4,3] <- -2*alpha2
+                T2[3,1] <- T2[4,2] <- T2[5,3]<- phi2
+                T3[2,1]<-T3[3,2]<-T3[4,3]<-T3[5,4]<-T3[6,5]<-T3[7,6]<- -2*alpha3
+                T3[3,1]<-T3[4,2]<-T3[5,3]<-T3[6,4]<-T3[7,5]<- phi3
                 # see (A6) Liang & Browne
                 asup3 = (T3 %*% T2 %*% T1) * lambda
       

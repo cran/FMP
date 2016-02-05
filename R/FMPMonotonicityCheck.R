@@ -2,7 +2,7 @@
 ## This function is used to determine whether the derivative of the 
 ## polynomial is everywhere positive. in FMP models the derivative of the polynomial
 ## must be positive everywhere to insure monotonicity.  
-FMPMonotonicityCheck<-function(b, lower = -10, upper = 10){
+FMPMonotonicityCheck<-function(b, lower = -20, upper = 20){
   ## b is an 8x1 vector of FMP polynomial coefficients
   ## b0, b1, . . . b7
   DerivFMP <-  function(theta,b) {

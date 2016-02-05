@@ -24,7 +24,7 @@ Estimate the coefficients of a filtered monotonic polynomial IRT model.}
 }
 \details{
 As described by Liang and Browne (2015), the filtered polynomial model (FMP) is a quasi-parametric 
-IRT model in which the IRF is a composition of a logistic function and a polynomial function, m(theta), of degree 2k + 1. 
+IRT model in which the IRF is a composition of a logistic function and a polynomial function, \eqn{m(\theta)}, of degree 2k + 1. 
 When k = 0, \eqn{m(\theta) = b0 + b1 \theta} 
 (the slope intercept form of the 2PL). When k = 1, 2k + 1 equals 3 resulting in 
 \eqn{m(\theta) = b0 + b_1 \theta + b_2 \theta^2 + b_3 \theta^3}. Acceptable values of k = {0,1,2,3}. According to 
