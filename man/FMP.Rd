@@ -7,7 +7,7 @@ Estimate the coefficients of a filtered monotonic polynomial IRT model.}
 }
 \arguments{
  \item{data}{N(subjects)-by-p(items) matrix of 0/1 item response data.}
- \item{thetaInit}{Initial theta surrogates (e.g., calculated by \link{svdNorm}).}
+ \item{thetaInit}{Initial theta (\eqn{\theta}) surrogates (e.g., calculated by \link{svdNorm}).}
  \item{item}{Item number for coefficient estimation.}
  \item{startvals}{Start values for function minimization. Start values are in the gamma metric (see Liang & Browne, 2015)} 
  \item{k}{Order of monotonic polynomial = 2k+1 (see Liang & Browne, 2015). k can equal 0, 1, 2, or 3.}
@@ -25,9 +25,9 @@ Estimate the coefficients of a filtered monotonic polynomial IRT model.}
 \details{
 As described by Liang and Browne (2015), the filtered polynomial model (FMP) is a quasi-parametric 
 IRT model in which the IRF is a composition of a logistic function and a polynomial function, \eqn{m(\theta)}, of degree 2k + 1. 
-When k = 0, \eqn{m(\theta) = b0 + b1 \theta} 
+When k = 0, \eqn{m(\theta) = b_0 + b_1 \theta} 
 (the slope intercept form of the 2PL). When k = 1, 2k + 1 equals 3 resulting in 
-\eqn{m(\theta) = b0 + b_1 \theta + b_2 \theta^2 + b_3 \theta^3}. Acceptable values of k = {0,1,2,3}. According to 
+\eqn{m(\theta) = b_0 + b_1 \theta + b_2 \theta^2 + b_3 \theta^3}. Acceptable values of k = {0,1,2,3}. According to 
 Liang and Browne, the "FMP IRF may be used to approximate any IRF with a continuous derivative arbitrarily 
 closely by increasing the number of parameters in the monotonic polynomial" (2015, p. 2) The FMP model assumes that the
 IRF is monotonically increasing, bounded by 0 and 1, and everywhere differentiable with respect to theta (the latent trait).

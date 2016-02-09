@@ -1,7 +1,7 @@
 ## FMP 
 # programmed by Niels Waller 
 # January 27, 2016
-# bugs in T2 T3 fixed on February 5, 2016
+# bugs in T2 T3 fixed on February 8, 2016
 
 
 
@@ -93,7 +93,7 @@ FMP<-function(data, thetaInit, item, startvals, k=0, eps=1e-6){
             T1 <-as.vector(c(1, -2*alpha1, phi1))
             T2[2,1]<-T2[3,2]<-T2[4,3] <- -2*alpha2
             T2[3,1] <- T2[4,2] <- T2[5,3]<- phi2
-            T3[2,1]<-T3[3,2]<-T3[4,3]<-T3[5,4]<-T3[6,5]<-T3[7,6]<- -2*alpha3
+            T3[2,1]<-T3[3,2]<-T3[4,3]<-T3[5,4]<-T3[6,5]<- -2*alpha3
             T3[3,1]<-T3[4,2]<-T3[5,3]<-T3[6,4]<-T3[7,5]<- phi3
       
             # see (A6) Liang & Browne
@@ -203,7 +203,7 @@ FMP<-function(data, thetaInit, item, startvals, k=0, eps=1e-6){
                 y = data[,item]
       
                 # create logit polynomial 
-                m = b0 + b1*thetaInit + b2*thetaInit^2 + b3*thetaInit^3 + b4*thetaInit^4 + b5*thetaInit^5
+                m = b0 + b1*thetaInit + b2*thetaInit^2 + b3*thetaInit^3 +    b4*thetaInit^4 + b5*thetaInit^5
       
                 ##  avoid log(0)
                 Pm <- P(m);
@@ -235,7 +235,7 @@ FMP<-function(data, thetaInit, item, startvals, k=0, eps=1e-6){
                 T1 <-as.vector(c(1, -2*alpha1, phi1))
                 T2[2,1]<-T2[3,2]<-T2[4,3] <- -2*alpha2
                 T2[3,1] <- T2[4,2] <- T2[5,3]<- phi2
-                T3[2,1]<-T3[3,2]<-T3[4,3]<-T3[5,4]<-T3[6,5]<-T3[7,6]<- -2*alpha3
+                T3[2,1]<-T3[3,2]<-T3[4,3]<-T3[5,4]<-T3[6,5]<- -2*alpha3
                 T3[3,1]<-T3[4,2]<-T3[5,3]<-T3[6,4]<-T3[7,5]<- phi3
                 # see (A6) Liang & Browne
                 asup3 = (T3 %*% T2 %*% T1) * lambda
